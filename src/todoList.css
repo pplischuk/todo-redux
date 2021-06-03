@@ -1,0 +1,23 @@
+.wrapper{
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+	max-width: 250px;
+	max-height: 700px;
+	margin: 0 auto;
+	padding: 50px;
+}
+
+.date{
+	display: flex;
+	justify-content: space-between;
+	color:#616473;
+	font-size: 13px;
+}
+
+.day{
+	font-size: 37px;
+}
+
+.yearDayMonth{
+	display: flex;
+}
