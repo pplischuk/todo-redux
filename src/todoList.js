@@ -1,9 +1,7 @@
-import './todoList.css';
-import moment from 'moment'
+import "./todoList.css";
 
 function Todo() {
   return (
-    
     <div className = 'wrapper'>
       <div className = 'date'>
         <div className = 'yearDayMonth'>
@@ -15,9 +13,8 @@ function Todo() {
         </div>
         <div className = 'nameOfDay'>{moment().format('dddd')}</div>
       </div>
-      wkjreniowern
     </div>
   );
-}
+};
 
 export default Todo;
