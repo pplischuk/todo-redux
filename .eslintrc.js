@@ -51,8 +51,9 @@ module.exports = {
             "error",
             "always"
         ],
-    "semi": [2, "always"],
-    "no-unused-vars": "error",
-    "no-use-before-define": [0],
+        "semi": [2, "always"],
+        "no-unused-vars": "error",
+        "no-use-before-define": [0],
+        "react/react-in-jsx-scope": "off"
     }
 };
