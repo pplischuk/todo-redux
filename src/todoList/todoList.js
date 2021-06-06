@@ -27,7 +27,7 @@ class Todo extends React.Component{
           </div>
           <div className = "nameOfDay">{moment().format("dddd")}</div>
         </div>
-        <Todos props = {this.state.todos}/>
+        <Todos todosList = {this.state.todos}/>
       </div>
     );
   }
