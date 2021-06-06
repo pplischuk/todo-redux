@@ -7,22 +7,20 @@ class Todos extends React.Component{
 		this.list = this.list.bind(this);
 	}
 
-	list(props){
-		if(props.length){
-			props.map(todo => {
-				<div key = {todo.id}>
-					<span>{todo.content}</span>
-				</div>;
-			});
-		} else {
-			<p>u`ve not any todo</p>;
+	list(a){
+			if(a.todosList && a.todosList.length){
+			return a.todosList.map(todo => (
+					<div key = {todo.id}>
+						<span>{todo.content}</span>
+					</div>
+				));
 		}
 	}
 	
 	render(){
 		return(
 			<div className = "todosItem">
-				{this.list()}
+				{this.list(this.props)}
 			</div>
 			);
 	}
