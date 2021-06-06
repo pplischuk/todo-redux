@@ -22,12 +22,12 @@ class Todo extends React.Component{
             <div className = "day">{moment().format("D")}</div>
             <div className = "yearMonth">
               <div>{moment().format("MMM")}</div>
-              <div>{moment().format("YYYY")}</div>
+              <div className = "year">{moment().format("YYYY")}</div>
             </div>
           </div>
           <div className = "nameOfDay">{moment().format("dddd")}</div>
         </div>
-        <Todos todos = {this.state.todos}/>
+        <Todos props = {this.state.todos}/>
       </div>
     );
   }

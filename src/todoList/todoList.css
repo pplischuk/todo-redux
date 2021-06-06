@@ -1,13 +1,33 @@
+@font-face {
+	font-family: 'GothamRounded';
+	src: url('../fonts/GothamRnd-Book.eot');
+	src: local('☺'), url('../fonts/GothamRnd-Book.woff') format('woff'), url('../fonts/GothamRnd-Book.ttf') format('truetype'), url('../fonts/GothamRnd-Book.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GothamRounded1';
+	src: url('../fonts/GothamRounded-Medium.eot');
+	src: local('☺'), url('../fonts/GothamRounded-Medium.woff') format('woff'), url('../fonts/GothamRounded-Medium.ttf') format('truetype'), url('../fonts/GothamRounded-Medium.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
 .wrapper{
 	background-color: #fff;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5); 
 	max-width: 250px;
 	max-height: 700px;
 	margin: 0 auto;
+	margin-top: 20px;
 	padding: 50px;
 }
 
 .date{
+	font-family: 'GothamRounded1';
+	font-weight: 500px;
 	display: flex;
 	justify-content: space-between;
 	color:#616473;
@@ -16,8 +36,22 @@
 
 .day{
 	font-size: 37px;
+	padding-right: 10px;
+}
+
+.year{
+	font-family: 'GothamRounded';
 }
 
 .yearDayMonth{
 	display: flex;
+}
+
+.yearMonth{
+	text-align: left;
+	margin: auto 0;
+}
+
+.nameOfDay{
+	margin: auto 0;
 }
