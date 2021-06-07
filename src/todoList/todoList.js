@@ -28,6 +28,10 @@ class Todo extends React.Component{
           <div className = "nameOfDay">{moment().format("dddd")}</div>
         </div>
         <Todos todosList = {this.state.todos}/>
+        <div className = "addbtnwrap">
+          <button className = "addbtn">+</button>
+        </div>
+        
       </div>
     );
   }
