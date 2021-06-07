@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./listItem.css";
 class Todos extends React.Component{
 	constructor(props){
 		super(props);
@@ -10,8 +10,9 @@ class Todos extends React.Component{
 	list(a){
 			if(a.todosList && a.todosList.length){
 			return a.todosList.map(todo => (
-					<div key = {todo.id}>
-						<span>{todo.content}</span>
+					<div className = "listItemWrapper" key = {todo.id}>
+						<span className = "listItem">{todo.content}</span>
+						<button className = "btn"></button>
 					</div>
 				));
 		}
