@@ -12,7 +12,13 @@ class Todo extends React.Component{
         { id:2, content: "buy milk", isdone: false }
       ]
     };
+    this.changeIsDone = this.changeIsDone.bind(this);
   }
+
+  changeIsDone = () => {
+    this.setState({ isdone: !this.isdone });
+  };
+
   render(){
 
     return (
@@ -27,7 +33,9 @@ class Todo extends React.Component{
           </div>
           <div className = "nameOfDay">{moment().format("dddd")}</div>
         </div>
-        <Todos todosList = {this.state.todos}/>
+        <Todos todosList = {this.state.todos}
+          changeIsDone = {this.changeIsDone}
+        />
         <div className = "addbtnwrap">
           <button className = "addbtn">+</button>
         </div>
