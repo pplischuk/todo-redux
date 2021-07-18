@@ -1,6 +1,7 @@
 import React from "react";
 import "./listItem.css";
 
+
 class Todos extends React.Component{
 	constructor(props){
 		super(props);
@@ -15,8 +16,8 @@ class Todos extends React.Component{
 					<div className = "listItemWrapper" key = {todo.id}>
 						<span className = "listItem">{todo.content}</span>
 						<button onClick = {() => {
-							this.props.changeIsDone ;
-						}} className = "btn"></button>
+						this.props.changeIsDone(todo.id);
+					}} className = "btn"></button>
 					</div>
 				));
 		}
@@ -30,4 +31,5 @@ class Todos extends React.Component{
 			);
 	}
 }
+
 export default Todos;
