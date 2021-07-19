@@ -8,11 +8,24 @@ class Todo extends React.Component{
     super();
     this.state = {
       todos: [
-        { id:1, content: "read a book", isdone: true },
-        { id:2, content: "buy milk", isdone: false }
+        { id:0, content: "read a book", isdone: true },
+        { id:1, content: "buy milk", isdone: false }
       ]
     };
+    this.changeIsDone = this.changeIsDone.bind(this);
   }
+
+  changeIsDone(key){
+    this.setState(state => {
+      let todos = state.todos.forEach(item => {
+        if(key === item.id){
+         
+        }
+      });
+      return { ...todos, };
+    });
+}
+
   render(){
 
     return (
@@ -27,7 +40,10 @@ class Todo extends React.Component{
           </div>
           <div className = "nameOfDay">{moment().format("dddd")}</div>
         </div>
-        <Todos todosList = {this.state.todos}/>
+        <Todos todosList = {this.state.todos}
+          changeIsDone = {this.changeIsDone}
+        />
+        <input type = "text" placeholder = "...write todo" className = "inputTodo"></input>
         <div className = "addbtnwrap">
           <button className = "addbtn">+</button>
         </div>
@@ -36,5 +52,6 @@ class Todo extends React.Component{
     );
   }
 }
+
 
 export default Todo;

@@ -1,5 +1,7 @@
 import React from "react";
 import "./listItem.css";
+
+
 class Todos extends React.Component{
 	constructor(props){
 		super(props);
@@ -12,7 +14,9 @@ class Todos extends React.Component{
 			return a.todosList.map(todo => (
 					<div className = "listItemWrapper" key = {todo.id}>
 						<span className = "listItem">{todo.content}</span>
-						<button className = "btn"></button>
+						<button onClick = {() => {
+						this.props.changeIsDone(todo.id);
+					}} className = {todo.isdone ? "btn_done" : "btn"}></button>
 					</div>
 				));
 		}
@@ -26,4 +30,5 @@ class Todos extends React.Component{
 			);
 	}
 }
+
 export default Todos;
