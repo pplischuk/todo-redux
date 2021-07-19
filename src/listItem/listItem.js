@@ -10,14 +10,13 @@ class Todos extends React.Component{
 	}
 
 	list(a){
-			console.log(this.props);
 			if(a.todosList && a.todosList.length){
 			return a.todosList.map(todo => (
 					<div className = "listItemWrapper" key = {todo.id}>
 						<span className = "listItem">{todo.content}</span>
 						<button onClick = {() => {
 						this.props.changeIsDone(todo.id);
-					}} className = "btn"></button>
+					}} className = {todo.isdone ? "btn_done" : "btn"}></button>
 					</div>
 				));
 		}

@@ -15,14 +15,14 @@ class Todo extends React.Component{
     this.changeIsDone = this.changeIsDone.bind(this);
   }
 
-  changeIsDone(){
-    const todosId = this.state.todos;
-    console.log(todosId, "todosID");
-    return this.state.todos.map((item, index) => {
-      if(index === item.id){
-        item.isdone = !item.isdone;
-        console.log(this.state, "this state");
-    }
+  changeIsDone(key){
+    this.setState(state => {
+      let todos = state.todos.forEach(item => {
+        if(key === item.id){
+         
+        }
+      });
+      return { ...todos, };
     });
 }
 
@@ -43,6 +43,7 @@ class Todo extends React.Component{
         <Todos todosList = {this.state.todos}
           changeIsDone = {this.changeIsDone}
         />
+        <input type = "text" placeholder = "...write todo" className = "inputTodo"></input>
         <div className = "addbtnwrap">
           <button className = "addbtn">+</button>
         </div>
