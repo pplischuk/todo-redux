@@ -8,7 +8,7 @@ class Todo extends React.Component{
     super();
     this.state = {
       todos: [
-        { id:0, content: "read a book", isdone: true },
+        { id:0, content: "read a book", isdone: false },
         { id:1, content: "buy milk", isdone: false }
       ]
     };
@@ -16,14 +16,11 @@ class Todo extends React.Component{
   }
 
   changeIsDone(key){
-    this.setState(state => {
-      let todos = state.todos.forEach(item => {
-        if(key === item.id){
-         
-        }
-      });
-      return { ...todos, };
-    });
+    this.setState(state => ({
+      todos: state.todos.map(
+      item => (item.id === key ? Object.assign(item, { isdone: "!isdone" }) : item)
+    )
+  }));
 }
 
   render(){
@@ -55,3 +52,15 @@ class Todo extends React.Component{
 
 
 export default Todo;
+
+
+
+
+// this.setState(state => {
+//   let todos = state.todos.forEach(item => {
+//     if(key === item.id){
+     
+//     }
+//   });
+//   return { ...todos, };
+// });

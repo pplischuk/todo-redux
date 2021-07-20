@@ -4,6 +4,12 @@
 	letter-spacing: 1px;
 }
 
+.listItem_done{
+	color:#BDC0CA;
+	letter-spacing: 1px;
+	font-size: 17px;
+}
+
 .listItemWrapper{
 	display: flex;
 	justify-content: space-between;
