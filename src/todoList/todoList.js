@@ -10,18 +10,43 @@ class Todo extends React.Component{
       todos: [
         { id:0, content: "read a book", isdone: false },
         { id:1, content: "buy milk", isdone: false }
-      ]
+      ],
+      input: ""
     };
     this.changeIsDone = this.changeIsDone.bind(this);
+    this.handleList = this.handleList.bind(this);
+    this.addItem = this.addItem.bind(this);
   }
 
   changeIsDone(key){
     this.setState(state => ({
       todos: state.todos.map(
-      item => (item.id === key ? Object.assign(item, { isdone: "!isdone" }) : item)
+      item => (item.id === key ? Object.assign(item, { isdone: !state.isdone }) : item)
     )
   }));
 }
+
+  handleList(e){
+    this.setState({ input: e.target.value });
+  }
+
+  addItem(){
+    if(this.state.input){
+      this.setState({
+        todos: [
+          ...this.state.todos,
+          {
+            content: this.state.input,
+            id: 2,
+            isdone:false
+          }
+        ],
+        input:""
+      });
+    }
+  }
+
+
 
   render(){
 
@@ -40,9 +65,14 @@ class Todo extends React.Component{
         <Todos todosList = {this.state.todos}
           changeIsDone = {this.changeIsDone}
         />
-        <input type = "text" placeholder = "...write todo" className = "inputTodo"></input>
+        <input type = "text"
+        placeholder = "...write todo"
+        className = "inputTodo"
+        value = {this.state.input}
+        onChange = {this.handleList}
+        ></input>
         <div className = "addbtnwrap">
-          <button className = "addbtn">+</button>
+          <button className = "addbtn" onClick = {this.addItem}>+</button>
         </div>
         
       </div>
