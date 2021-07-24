@@ -19,7 +19,24 @@
 
 .todosItem{
 	padding-top: 60px;
-	width: 250px;
+	padding-right: 10px;
+	width: 260px;
+	height: 250px;
+	overflow-y: scroll;
+}
+
+.todosItem::-webkit-scrollbar{
+	width: 5px;
+}
+
+.todosItem::-webkit-scrollbar-track{
+	background: none; 
+}
+
+.todosItem::-webkit-scrollbar-thumb{
+	background-color: #BDC0CA;    /* color of the scroll thumb */
+  border-radius: 50px;
+  height: 10px;     /* roundness of the scroll thumb */
 }
 
 .btn_done{

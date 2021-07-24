@@ -41,7 +41,7 @@ class Todo extends React.Component{
             isdone:false
           }
         ],
-        input:""
+        input:"qaw"
       });
     }
   }
