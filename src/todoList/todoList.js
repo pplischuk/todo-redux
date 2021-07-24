@@ -7,9 +7,10 @@ class Todo extends React.Component{
   constructor(){
     super();
     this.state = {
+      id:0,
       todos: [
-        { id:0, content: "read a book", isdone: false },
-        { id:1, content: "buy milk", isdone: false }
+        // { id:0, content: "read a book", isdone: false },
+        // { id:1, content: "buy milk", isdone: false }
       ],
       input: ""
     };
@@ -30,18 +31,23 @@ class Todo extends React.Component{
     this.setState({ input: e.target.value });
   }
 
+
+
   addItem(){
     if(this.state.input){
-      this.setState({
-        todos: [
-          ...this.state.todos,
-          {
-            content: this.state.input,
-            id: 2,
-            isdone:false
-          }
-        ],
-        input:"qaw"
+      this.setState(state => {
+        return{
+          id: state.id + 1,
+          todos: [
+            ...this.state.todos,
+            {
+              content: this.state.input,
+              id: state.id,
+              isdone:false
+            }
+          ],
+          input:""
+        };
       });
     }
   }
