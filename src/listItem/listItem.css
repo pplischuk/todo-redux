@@ -59,6 +59,14 @@
 	background: none;
 	font-size: 30px;
 	color:#616473;
+	position: relative;
+	bottom: 3px;
+	padding-left: 15px;
+}
+
+.btnDelete:hover{
+	color:tomato;
+	transition: 0.2s;
 }
 
 button{

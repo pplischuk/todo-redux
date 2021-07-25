@@ -8,10 +8,7 @@ class Todo extends React.Component{
     super();
     this.state = {
       id:0,
-      todos: [
-        { id:0, content: "read a book", isdone: false },
-        { id:1, content: "buy milk", isdone: false }
-      ],
+      todos: [],
       input: ""
     };
     this.changeIsDone = this.changeIsDone.bind(this);
