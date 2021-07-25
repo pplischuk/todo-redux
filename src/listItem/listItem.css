@@ -2,6 +2,8 @@
 	color:#3E434F;
 	font-size: 17px;
 	letter-spacing: 1px;
+	width: 250px;
+	word-wrap: break-word
 }
 
 .listItem_done{
@@ -52,6 +54,12 @@
 	background: none;
 }
 
+.btnDelete{
+	border: none;
+	background: none;
+	font-size: 30px;
+	color:#616473;
+}
 
 button{
 	border: none;

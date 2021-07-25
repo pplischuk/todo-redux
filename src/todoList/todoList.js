@@ -9,14 +9,15 @@ class Todo extends React.Component{
     this.state = {
       id:0,
       todos: [
-        // { id:0, content: "read a book", isdone: false },
-        // { id:1, content: "buy milk", isdone: false }
+        { id:0, content: "read a book", isdone: false },
+        { id:1, content: "buy milk", isdone: false }
       ],
       input: ""
     };
     this.changeIsDone = this.changeIsDone.bind(this);
     this.handleList = this.handleList.bind(this);
     this.addItem = this.addItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   changeIsDone(key){
@@ -27,6 +28,15 @@ class Todo extends React.Component{
   }));
 }
 
+  deleteItem(key){
+    this.setState(state => {
+      return {
+        id: state.id - 1,
+        todos: state.todos.filter(item => item.id !== key)
+      };
+    });
+  }
+
   handleList(e){
     this.setState({ input: e.target.value });
   }
@@ -36,6 +46,7 @@ class Todo extends React.Component{
   addItem(){
     if(this.state.input){
       this.setState(state => {
+
         return{
           id: state.id + 1,
           todos: [
@@ -51,8 +62,6 @@ class Todo extends React.Component{
       });
     }
   }
-
-
 
   render(){
 
@@ -70,6 +79,7 @@ class Todo extends React.Component{
         </div>
         <Todos todosList = {this.state.todos}
           changeIsDone = {this.changeIsDone}
+          deleteItem = { this.deleteItem }
         />
         <input type = "text"
         placeholder = "...write todo"
@@ -86,17 +96,4 @@ class Todo extends React.Component{
   }
 }
 
-
 export default Todo;
-
-
-
-
-// this.setState(state => {
-//   let todos = state.todos.forEach(item => {
-//     if(key === item.id){
-     
-//     }
-//   });
-//   return { ...todos, };
-// });
