@@ -3,12 +3,8 @@ import "./listItem.css";
 
 
 class Todos extends React.Component{
-	constructor(props){
-		super(props);
 
-		this.list = this.list.bind(this);
-	}
-
+	
 	list(a){
 			if(a.todos && a.todos.length){
 			return a.todos.map(todo => (
@@ -18,16 +14,14 @@ class Todos extends React.Component{
 						>{todo.content}</span>
 							<div className = "buttonWrapper">
 								<button
-									onClick = {() => {
-									this.props.changeIsDone(todo.id);
-									}}
+									onClick = {() => this.props.changeIsDone(todo.id)}
 									className = {todo.isdone ? "btn_done" : "btn"}
 									>
 								</button>
 								<button className = "btnDelete"
-									// onClick = {() => {
-									// this.props.deleteItem(todo.id);
-									// }}
+									onClick = {() => {
+									this.props.deleteItem(todo.id);
+									}}
 									>
 									&times;
 								</button>

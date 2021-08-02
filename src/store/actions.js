@@ -1,5 +1,3 @@
-let nextId = 0;
-
 import { HANDLE_LIST_ITEM, ADD_ITEM, CHANGE_IS_DONE } from "./constans";
 
 export const handleList = text => ({
@@ -7,12 +5,16 @@ export const handleList = text => ({
 	payload: text
 });
 
-export const addItem = () => ({
-	type: ADD_ITEM,
-	id: nextId++,
-});
+export const addItem = payload => {
+	console.log(payload);
 
-export const changeIsDone = (id) =>({
+	return {
+		type: ADD_ITEM,
+		payload: payload,
+	};
+};
+
+export const changeIsDone = payload =>({
 	type: CHANGE_IS_DONE,
-	id
+	payload,
 });

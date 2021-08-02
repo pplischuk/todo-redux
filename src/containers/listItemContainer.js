@@ -8,11 +8,22 @@ class ListItemContainer extends React.Component{
     super();
   }
 
+  toggleIsDone = todoId => {
+    console.log(todoId);
+    const { todos } = this.props;
+    todos.forEach(item => {
+      if (item.id === todoId) item.isdone = !item.isdone;
+    });
+
+    this.props.changeIsDone(todos);
+  }
+
+
   render(){
 
     return (
       <Todos todos = {this.props.todos}
-        changeIsDone = { this.props.changeIsDone }
+        changeIsDone = { this.toggleIsDone }
       />
     );
   }
@@ -20,7 +31,7 @@ class ListItemContainer extends React.Component{
 
 const mapStateToProps = state => {
 	return {
-		todos: state.todos
+		todos: state.reducers.todos
 	};
 };
 

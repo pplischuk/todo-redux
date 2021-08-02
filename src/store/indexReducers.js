@@ -1,7 +1,7 @@
-// import { combineReducers} from "redux";
+import { combineReducers } from "redux";
 
-// import reducers from "./reducers";
+import reducers from "./reducers";
 
-// export default combineReducers(reducers){
-// 	reducers
-// }
+export default combineReducers({
+	reducers
+});
