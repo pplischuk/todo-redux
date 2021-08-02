@@ -18,9 +18,9 @@ class Todos extends React.Component{
 						>{todo.content}</span>
 							<div className = "buttonWrapper">
 								<button
-									// onClick = {() => {
-									// this.props.changeIsDone(todo.id);
-									//}}
+									onClick = {() => {
+									this.props.changeIsDone(todo.id);
+									}}
 									className = {todo.isdone ? "btn_done" : "btn"}
 									>
 								</button>
