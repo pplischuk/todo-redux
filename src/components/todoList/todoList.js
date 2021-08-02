@@ -6,18 +6,23 @@ import ListItemContainer from "../../containers/listItemContainer";
 class Todo extends React.Component{
   constructor(props){
     super(props);
-    // this.changeIsDone = this.changeIsDone.bind(this);
-    this.handleList = this.handleList.bind(this);
-    this.addItem = this.addItem.bind(this);
-    // this.deleteItem = this.deleteItem.bind(this);
+
+    this.state = {
+        content: "",
+    };
   }
 
-  handleList(e){
-    this.props.handleList(e.target.value);
+  handleInput = e => {
+    this.setState({ content: e.target.value });
   }
 
-  addItem(){
-    this.props.addItem.content = this.props.input;
+  addItem = () => {
+    this.props.addItem({
+      content: this.state.content,
+      id: Date.now(),
+    });
+
+    this.setState({ content: "" });
   }
 
   render(){
@@ -36,13 +41,13 @@ class Todo extends React.Component{
         </div>
         <ListItemContainer/>
         <input type = "text"
-        placeholder = "...write todo"
-        className = "inputTodo"
-        value = {this.props.input}
-        onChange = {this.handleList}
+          value={this.state.content}
+          placeholder = "...write todo"
+          className = "inputTodo"
+          onChange = {this.handleInput}
         ></input>
         <div className = "addbtnwrap">
-          <button className = "addbtn" onClick = { this.props.addItem }>+</button>
+          <button className = "addbtn" onClick = {this.addItem}>+</button>
         </div>
       </div>
     );

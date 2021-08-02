@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const reducers = (state = initialState, action) => {
-	console.log(state);
+
 	switch(action.type){
 		case HANDLE_LIST_ITEM:
 			return {
@@ -15,31 +15,23 @@ const reducers = (state = initialState, action) => {
 				input:action.payload
 			};
 		case ADD_ITEM:
-			console.log(action);
+
 			return{
 				...state,
 				todos: [
 					...state.todos,
 					{
-						id: action.id,
-						content: state.input,
+						id: action.payload.id,
+						content: action.payload.content,
 						isdone: false
 					}
-				],
-				input: ""
+				]
 			};
 		case CHANGE_IS_DONE:
-			console.log(state.todos, "id");
-			state.todos.map(item => {
-				if(item.id == action.id){
-					return {
-						...state,
-						todos:[
-							item.isdone = !item.isdone
-						]
-					};
-				}
-			});
+			return {
+				...state,
+				todos:[...action.payload]
+			};
 	}
 
 	return state;

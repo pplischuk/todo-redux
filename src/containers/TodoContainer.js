@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { handleList, addItem } from "../store/actions";
+import { addItem } from "../store/actions";
 import Todo from "../components/todoList/todoList";
 
 class TodoContainer extends React.Component{
@@ -11,24 +11,13 @@ class TodoContainer extends React.Component{
   render(){
 
     return (
-      <Todo
-      handleList = {this.props.handleList}
-      input = {this.props.input}
-      addItem = { this.props.addItem }
-      />
+      <Todo addItem = { this.props.addItem } />
     );
   }
 }
 
-const mapStateToProps = state => {
-	return {
-		input: state.input
-	};
-};
+const mapDispatchToProps = dispatch => ({
+  addItem: payload => dispatch(addItem(payload)),
+});
 
-const mapDispatchToProps = {
-	handleList,
-  addItem
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);
+export default connect(null, mapDispatchToProps)(TodoContainer);
