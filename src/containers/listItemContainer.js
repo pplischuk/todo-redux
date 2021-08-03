@@ -24,7 +24,6 @@ class ListItemContainer extends React.Component{
     this.props.deleteItem(filteredTodos);
   }
 
-
   render(){
 
     return (
@@ -37,6 +36,7 @@ class ListItemContainer extends React.Component{
 }
 
 const mapStateToProps = state => {
+
 	return {
 		todos: state.reducers.todos
 	};

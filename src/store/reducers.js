@@ -13,7 +13,6 @@ const reducers = (state = initialState, action) => {
 				input:action.payload
 			};
 		case ADD_ITEM:
-
 			return{
 				...state,
 				todos: [
@@ -31,7 +30,7 @@ const reducers = (state = initialState, action) => {
 				...state,
 				todos:[...action.payload]
 			};
-			
+
 		case DELETE_ITEM:
 			return {
 				...state,
@@ -43,5 +42,3 @@ const reducers = (state = initialState, action) => {
 };
 
 export default reducers;
-
-// стейт не можна мотувати а тільки перезаписувати

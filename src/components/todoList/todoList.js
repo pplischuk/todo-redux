@@ -16,15 +16,15 @@ class Todo extends React.Component{
     this.setState({ content: e.target.value });
   }
 
-  
-
   addItem = () => {
     const objNewTodo = {
       content: this.state.content,
       id: Date.now(),
     };
-    this.props.addItem(objNewTodo);
 
+    this.state.content.length > 3 ?
+    this.props.addItem(objNewTodo):
+    alert("must be more then 3 symbols");
     this.setState({ content: "" });
   }
 
