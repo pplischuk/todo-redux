@@ -16,11 +16,14 @@ class Todo extends React.Component{
     this.setState({ content: e.target.value });
   }
 
+  
+
   addItem = () => {
-    this.props.addItem({
+    const objNewTodo = {
       content: this.state.content,
       id: Date.now(),
-    });
+    };
+    this.props.addItem(objNewTodo);
 
     this.setState({ content: "" });
   }

@@ -1,9 +1,7 @@
-import { HANDLE_LIST_ITEM, ADD_ITEM, CHANGE_IS_DONE } from "./constans";
+import { HANDLE_LIST_ITEM, ADD_ITEM, CHANGE_IS_DONE, DELETE_ITEM } from "./constans";
 
 const initialState = {
-	id:0,
 	todos: [],
-	input: ""
 };
 
 const reducers = (state = initialState, action) => {
@@ -27,7 +25,14 @@ const reducers = (state = initialState, action) => {
 					}
 				]
 			};
+
 		case CHANGE_IS_DONE:
+			return {
+				...state,
+				todos:[...action.payload]
+			};
+			
+		case DELETE_ITEM:
 			return {
 				...state,
 				todos:[...action.payload]
@@ -38,3 +43,5 @@ const reducers = (state = initialState, action) => {
 };
 
 export default reducers;
+
+// стейт не можна мотувати а тільки перезаписувати

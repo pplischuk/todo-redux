@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Todos from "../components/listItem/listItem";
-import { changeIsDone } from "../store/actions";
+import { changeIsDone, deleteItem } from "../store/actions";
 
 class ListItemContainer extends React.Component{
   constructor(){
@@ -9,7 +9,6 @@ class ListItemContainer extends React.Component{
   }
 
   toggleIsDone = todoId => {
-    console.log(todoId);
     const { todos } = this.props;
     todos.forEach(item => {
       if (item.id === todoId) item.isdone = !item.isdone;
@@ -18,12 +17,20 @@ class ListItemContainer extends React.Component{
     this.props.changeIsDone(todos);
   }
 
+  deleteItem = todoId => {
+    const { todos } = this.props;
+    const filteredTodos = todos.filter(item => item.id !== todoId);
+
+    this.props.deleteItem(filteredTodos);
+  }
+
 
   render(){
 
     return (
       <Todos todos = {this.props.todos}
         changeIsDone = { this.toggleIsDone }
+        deleteItem = { this.deleteItem }
       />
     );
   }
@@ -36,7 +43,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  changeIsDone
+  changeIsDone,
+  deleteItem
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListItemContainer);

@@ -19,9 +19,7 @@ class Todos extends React.Component{
 									>
 								</button>
 								<button className = "btnDelete"
-									onClick = {() => {
-									this.props.deleteItem(todo.id);
-									}}
+									onClick = {() => this.props.deleteItem(todo.id)}
 									>
 									&times;
 								</button>
